@@ -1,21 +1,22 @@
 export async function getAllEvents() {
-    const response = await fetch('https://next-events-2a89e-default-rtdb.firebaseio.com/events.json');
-    const data = await response.json();
+  const response = await fetch('https://next-events-2a89e-default-rtdb.firebaseio.com/events.json');
+  const data = await response.json();
   
-    const events = [];
+  const events = [];
   
-    for (const key in data) {
-      events.push({
-        id: key,
-        ...data[key]
-      });
-    }
-  
-    return events;
+  for (const key in data) {
+    events.push({
+      id: key,
+      ...data[key]
+    });
   }
+  
+  return events;
+}
   
   export async function getFeaturedEvents() {
     const allEvents = await getAllEvents();
+    console.log('getfeaturedEvents');
     return allEvents.filter((event) => event.isFeatured);
   }
   

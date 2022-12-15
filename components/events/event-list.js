@@ -3,7 +3,7 @@ import classes from './event-list.module.css';
 
 function EventList(props) {
   const { items } = props;
-
+  console.log('this is props', props);
   return (
     <ul className={classes.list}>
       {items.map((event) => (
@@ -11,7 +11,7 @@ function EventList(props) {
           key={event.id}
           id={event.id}
           title={event.title}
-          location={event.location}
+          location={event.location} 
           date={event.date}
           image={event.image}
         />
